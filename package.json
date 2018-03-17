@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "description": "",
   "license": "ISC",
-  "private": true,
   "author": "Tuomas Hatakka <tuomas.hatakka@gmail.com> (https://tuomashatakka.github.io)",
   "scripts": {
     "build": "webpack . --config config/webpack",
@@ -65,8 +64,7 @@
   },
   "config": {},
   "publishConfig": {
-    "registry": "https://npm.fns.fi",
-    "access": "restricted"
+    "access": "public"
   },
   "directories": {
     "lib": "./src/",
