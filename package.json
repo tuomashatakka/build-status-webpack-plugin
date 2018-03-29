@@ -1,7 +1,7 @@
 {
   "name": "build-status-webpack-plugin",
   "main": "src/index.js",
-  "version": "0.0.1-0",
+  "version": "0.0.1",
   "description": "",
   "license": "ISC",
   "author": "Tuomas Hatakka <tuomas.hatakka@gmail.com> (https://tuomashatakka.github.io)",
