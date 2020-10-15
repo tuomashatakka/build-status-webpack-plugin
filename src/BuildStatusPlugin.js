@@ -8,6 +8,7 @@ const clearConsole    = require('react-dev-utils/clearConsole')
 const parseMessages   = require('react-dev-utils/formatWebpackMessages')
 
 const { min, max, floor, ceil, round } = Math
+const format = process.stdout.isTTY
 
 let lastUpdate = Date.now()
 
@@ -183,7 +184,9 @@ module.exports = class BuildStatusPlugin {
 
     if (chunks.length <= 5)
       for (let text of chunks)
-        lines.push(getHorizontalPad(text, width) + text)
+        lines.push(format
+          ? getHorizontalPad(text, width) + text
+          : text)
 
     else
       lines.splice(0, 0, ...chunks.map(line => "  " + line))
@@ -218,12 +221,12 @@ const drawProgressBar = (current, options) => {
 }
 
 
-const getHorizontalPad = (line, width) =>
-  join(arrayOf(max(1, floor(width / 2 - len(line) / 2)), ' '))
+const getHorizontalPad = (line, width) => join(format
+  ? arrayOf(max(1, floor(width / 2 - len(line) / 2)), ' ') : [])
 
 
-const getVerticalPad = (lines, height) =>
-  arrayOf(max(1, floor(height / 2) - ceil(lines.length / 2)), '')
+const getVerticalPad = (lines, height) => format
+  ? arrayOf(max(1, floor(height / 2) - ceil(lines.length / 2)), '') : []
 
 
 const parseMessageOutput = (messages, type) =>
@@ -252,5 +255,4 @@ const arrayOf = (length, fill) =>
   Array(length).fill(fill)
 
 
-const draw = (lines) =>
-  log(lines)
+const draw = (lines) => log(lines)
