@@ -17,7 +17,7 @@
     "chalk": "^2.3.2",
     "cli-progress": "^1.8.0",
     "log-update": "^2.3.0",
-    "react-dev-utils": "^5.0.0",
+    "react-dev-utils": "^11.0.4",
     "string-length": "^2.0.0",
     "term-size": "^1.2.0"
   },
